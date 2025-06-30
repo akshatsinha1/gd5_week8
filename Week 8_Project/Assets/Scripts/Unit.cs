@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Overlays;
 using UnityEngine;
 using UnityEngine.AI;
+
 
 
 // Base class for all Unit. It will handle movement order given through the UserControl script.
@@ -26,7 +28,11 @@ public abstract class Unit : MonoBehaviour,
 
     private void Start()
     {
-
+        if(MainManager.Instance != null)
+        {
+            SetColor(MainManager.Instance.unitColour);
+        }
+      
     }
 
     void SetColor(Color c)
